@@ -47,7 +47,6 @@ export default function SignIn(props) {
         userServices.getUserInfo().then(
           res => setData(res.data)
         )
-  
     },[])
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')

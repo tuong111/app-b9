@@ -4,10 +4,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Checkbox from '@material-ui/core/Checkbox';
 import TextField from '@material-ui/core/TextField';
 import { Box, Button, FormControl, FormControlLabel, Grid } from '@material-ui/core';
-import { Link, useHistory } from 'react-router-dom';
 import swal from 'sweetalert';
 import userServices from '../services/getUserAPI';
 import { useEffect } from 'react';
+import { useHistory, Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     iconStyle: {
@@ -47,7 +47,6 @@ const useStyles = makeStyles((theme) => ({
 export default function Signup(props) {
     const classes = useStyles();
     const history = useHistory()
-    
     const [data,setData] = useState([])
     useEffect(() => {
         userServices.getUserInfo().then(
@@ -93,7 +92,11 @@ export default function Signup(props) {
                 icon: "success",
                 button: "OK",
               });
+
               history.push('/sign-in')
+              userServices.getUserInfo().then(
+                res => setData(res.data)
+              )
         }
 
     }
