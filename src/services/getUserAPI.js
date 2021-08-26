@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const responseUrl = "http://localhost:3000/api"
+const responseUrl = "https://tuong-json-sever.herokuapp.com/api"
 const getUserInfo = async () => {
-    const res = await axios.get(`http://localhost:3000/api/users`)
+    const res = await axios.get(`${responseUrl}/users`)
     return res
 }
 
